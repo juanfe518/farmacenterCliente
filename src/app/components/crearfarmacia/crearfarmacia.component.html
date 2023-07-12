@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Crear farmacia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-icon name="storefront-outline" class="icon"></ion-icon>
+    <form  [formGroup]="loginForm" class="custom-form">
+      <ion-input
+        class="input"
+        formControlName="nombre_farmacia"
+        type="text"
+        fill="solid"
+        label="Ingrese el ombre de la farmacia"
+        labelPlacement="floating"
+        ngModel
+        nombre_farmacia
+      ></ion-input>
+      <ion-input
+        class="input"
+        formControlName="direccion_farmacia"
+        type="text"
+        fill="solid"
+        label="Dirección de la farmacia"
+        labelPlacement="floating"
+        direccion_farmacia
+      ></ion-input>
+      <ion-button fill="outline" class="button" (click)="crearFarmacia()">Crear</ion-button>
+      <ion-button fill="outline" class="button" color="danger" (click)="goBack()">Cancelar</ion-button>
+    </form>
+  </div>
+</ion-content>

@@ -27,7 +27,7 @@ export class FarmaciaService {
 
   createfarmacia(farmacia:Farmacia){
     const path = `${this.api}/postfarmacia`;
-    return this.httpClient.post(path, farmacia);
+    return this.httpClient.post<Farmacia>(path, farmacia);
   }
 
 

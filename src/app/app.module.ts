@@ -18,6 +18,7 @@ import { DetallemedicamentoComponent } from './components/detallemedicamento/det
 import { LoginComponent } from './components/login/login.component';
 import { RegistrousuariosComponent } from './components/registrousuarios/registrousuarios.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { CrearfarmaciaComponent } from './components/crearfarmacia/crearfarmacia.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MenuComponent } from './components/menu/menu.component';
     DetallemedicamentoComponent,
     LoginComponent, 
     RegistrousuariosComponent,
-    MenuComponent
+    MenuComponent,
+    CrearfarmaciaComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot([]), IonicModule.forRoot({}), AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

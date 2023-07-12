@@ -5,10 +5,7 @@
         <ion-button (click)="goBack()">
           <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
         </ion-button>
-        <ion-title *ngIf="medicamento">{{medicamento.nombre_medicamento}}</ion-title>
-        <ion-buttons slot="end">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>        
+        <ion-title *ngIf="medicamento">{{medicamento.nombre_medicamento}}</ion-title>       
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding" >

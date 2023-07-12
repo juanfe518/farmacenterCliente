@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { FarmaciaService } from 'src/app/service/farmacia.service';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-crearfarmacia',
+  templateUrl: './crearfarmacia.component.html',
+  styleUrls: ['./crearfarmacia.component.scss'],
 })
-export class LoginComponent  implements OnInit {
+export class CrearfarmaciaComponent  implements OnInit {
+
   loginForm: FormGroup = new FormGroup({
-    correo: new FormControl(),
-    contrasenia: new FormControl()
+    nombre_farmacia: new FormControl(),
+    direccion_farmacia: new FormControl()
   });
   public alertButtons = ['OK'];
 
@@ -21,6 +23,7 @@ export class LoginComponent  implements OnInit {
     private alertController: AlertController,
     private loginService: FarmaciaService,
     private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -29,22 +32,19 @@ export class LoginComponent  implements OnInit {
   
   setLoginControls() {
     this.loginForm = this.fb.group({
-      correo: ['', [Validators.required]],
-      contrasenia: ['', [Validators.required]],
+      nombre_farmacia: ['', [Validators.required]],
+      direccion_farmacia: ['', [Validators.required]],
     });
   }
 
-  onLogin() {
+  crearFarmacia() {
     const form = this.loginForm.getRawValue();
     if (!this.loginForm.valid) {
       this.presentAlert();
       return
     }
-    this.loginService.getLogin(form.correo,form.contrasenia).subscribe((registro) => {
-      if(registro.correo){
-        const logedUser = "true"; 
-
-        localStorage.setItem('rol', logedUser);
+    this.loginService.createfarmacia(form).subscribe((registro) => {
+      if(registro.nombre_farmacia){
         this.router.navigateByUrl('/farmacias').then(() => {
           window.location.reload();
         });
@@ -58,7 +58,7 @@ export class LoginComponent  implements OnInit {
     const alert = await this.alertController.create({
       header: 'Error',
       subHeader: 'Opss...',
-      message: 'Datos de acceso incorrectos!',
+      message: 'La farmacia no se creó correctamente!',
       buttons: this.alertButtons,
       cssClass: 'custom-alert'
     });
@@ -78,6 +78,10 @@ export class LoginComponent  implements OnInit {
     });
   
     await alert.present();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

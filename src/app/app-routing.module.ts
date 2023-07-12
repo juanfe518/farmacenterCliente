@@ -6,6 +6,7 @@ import { MedicamentosComponent } from './components/medicamentos/medicamentos.co
 import { DetallemedicamentoComponent } from './components/detallemedicamento/detallemedicamento.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrousuariosComponent } from './components/registrousuarios/registrousuarios.component';
+import { CrearfarmaciaComponent } from './components/crearfarmacia/crearfarmacia.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/farmacias', pathMatch: 'full'},
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'medicamentodetalle/:id', component: DetallemedicamentoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registrousuario', component: RegistrousuariosComponent },
+  { path: 'crearfarmacias', component: CrearfarmaciaComponent },
+
 
 ];
 

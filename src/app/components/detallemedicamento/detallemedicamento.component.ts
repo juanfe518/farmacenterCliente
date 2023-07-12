@@ -24,7 +24,6 @@ export class DetallemedicamentoComponent  implements OnInit {
   getMedicamento(): void{
     const id = +this.route.snapshot.paramMap.get('id');
     this.farmaciaService.getMedicamento(id).subscribe(medicamento => this.medicamento = medicamento);
-    console.log(this.medicamento);
   }
 
   goBack(): void {
