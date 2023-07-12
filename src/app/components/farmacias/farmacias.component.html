@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <app-menu></app-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Lista de farmacias</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" >
+
+      <ion-card *ngFor="let farmacia of farmacias">
+        <ion-card-header>
+          <ion-card-title>{{ farmacia.nombre_farmacia }}</ion-card-title>
+          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+        </ion-card-header>
+    
+        <ion-card-content>
+          {{ farmacia.direccion_farmacia }}
+        </ion-card-content>
+        <ion-card-content>
+          <ion-nav-link routerLink="/farmaciadetalle/{{farmacia.id}}">
+            <ion-button >Detalle</ion-button>
+          </ion-nav-link>
+        </ion-card-content>
+      </ion-card>
+    </ion-content>
+  </div>
+</ion-content>

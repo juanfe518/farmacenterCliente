@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Registro de usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-icon name="person-add-outline" class="icon"></ion-icon>
+    <form  [formGroup]="loginForm" class="custom-form">
+      <ion-input
+      class="input"
+      formControlName="nombre"
+      type="text"
+      fill="solid"
+      label="Nombre"
+      labelPlacement="floating"
+      ngModel
+      nombre
+    ></ion-input>
+      <ion-input
+        class="input"
+        formControlName="correo"
+        type="email"
+        fill="solid"
+        label="Email"
+        labelPlacement="floating"
+        ngModel
+        correo
+      ></ion-input>
+      <ion-input
+        class="input"
+        formControlName="contrasenia"
+        type="password"
+        fill="solid"
+        label="Contraseña"
+        labelPlacement="floating"
+      ></ion-input>
+      <ion-button fill="outline" class="button" (click)="onRegistro()">Registrar</ion-button>
+    </form>
+  </div>  
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "farmacenterCliente",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
